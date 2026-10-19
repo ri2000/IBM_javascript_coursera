@@ -36,5 +36,11 @@ function findEmployeeById(employeeId) {
  }
 
 function findEmployeeSpecialization(specialization){
-    document.getElementById("employeesDetails").innerHTML = employees.filter((employee) => employee.specialization === specialization).map((employee) => `<p>${foundEmployee.id}: ${foundEmployee.name} - ${foundEmployee.department} - ${foundEmployee.salary}</p>`).join('');
+    const foundEmployees = employees.filter((employee) => employee.specialization === specialization);
+    if (foundEmployees){
+        document.getElementById("employeesDetails").innerHTML = foundEmployees.map((employee) => `<p>${employee.id}: ${employee.name} - ${employee.department} - ${employee.salary}</p>`).join('');
+    }
+    else{
+        document.getElementById('employeesDetails').innerHTML = 'No employee has been found specialized in JavaScript';
+    }
 }
